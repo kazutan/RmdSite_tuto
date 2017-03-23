@@ -1,0 +1,90 @@
+---
+title: htmlwidgetsとjQueryのテスト
+---
+
+これらが使えることのテストというかデモ。
+
+## htmlwidgets系
+
+実際に試してみます。
+
+### leaflet
+
+```{r}
+library(leaflet)
+leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = 135.0000, lat = 35.0000)
+```
+
+### DiagrammeR
+
+[公式ドキュメント](http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#examples)にあるサンプルから。
+
+```{r}
+library(DiagrammeR)
+grViz("
+digraph a_nice_graph {
+
+# node definitions with substituted label text
+node [fontname = Helvetica]
+a [label = '@@1']
+b [label = '@@2-1']
+c [label = '@@2-2']
+d [label = '@@2-3']
+e [label = '@@2-4']
+f [label = '@@2-5']
+g [label = '@@2-6']
+h [label = '@@2-7']
+i [label = '@@2-8']
+j [label = '@@2-9']
+
+# edge definitions with the node IDs
+a -> {b c d e f g h i j}
+}
+
+[1]: 'top'
+[2]: 10:20
+")
+```
+
+### Plotly
+
+[公式サイトにある例](https://plot.ly/r/box-plots/)から一部修正して。
+
+```{r}
+library(plotly)
+p <- ggplot2::diamonds[sample(nrow(diamonds), 5000),] %>% 
+  plot_ly(y = ~price, color = ~cut, type = "box")
+p
+```
+
+## jQueryをRmd上で使ってみる
+
+以下のコードを準備します:
+
+`r ""````{js}
+$(function(){
+  $("#hoge").click(function(){
+    $(this).fadeOut(1000)
+  })
+})
+`r ""````
+
+```{js}
+$(function(){
+  $("#hoge").click(function(){
+    $('.r').fadeOut(1000)
+  })
+})
+```
+
+そして,以下のコードを利用してボタンを準備します:
+
+```
+<button type="button" class="btn btn-primary" id="hoge">Primary</button>
+```
+
+<button type="button" class="btn btn-primary" id="hoge">Primary</button>
+
+このボタンを押すと,このページで表示していたRのコードブロックがフェードアウトします。

@@ -1,0 +1,36 @@
+---
+title: RでHTML生成
+output:
+  html_document:
+    toc: false
+---
+
+[公式ドキュメントのこちら](http://rmarkdown.rstudio.com/rmarkdown_websites.html#html_generation)を参考に多少修正して実施します。
+
+```{r}
+library(htmltools)
+thumbnail <- function(title, img, href, caption = TRUE) {
+  div(class = "col-sm-4",
+      a(class = "thumbnail", title = title, href = href,
+        img(src = img),
+        div(class = ifelse(caption, "caption", ""),
+          ifelse(caption, title, "")
+        )
+      )
+  )
+}
+```
+
+```{r, eval=FALSE}
+thumbnail("sushi", "images/sushi.jpg", "https://www.google.co.jp/search?q=%E5%AF%BF%E5%8F%B8&tbm=isch")
+thumbnail("shabu-shabu", "images/niku.jpg", "https://www.google.co.jp/search?q=%E3%81%97%E3%82%83%E3%81%B6%E3%81%97%E3%82%83%E3%81%B6&tbm=isch")
+thumbnail("beer", "images/beer.jpg", "https://www.google.co.jp/search?q=%E3%83%93%E3%83%BC%E3%83%AB&tbm=isch")
+```
+
+```{r, echo=FALSE}
+thumbnail("sushi", "images/sushi.jpg", "https://www.google.co.jp/search?q=%E5%AF%BF%E5%8F%B8&tbm=isch")
+thumbnail("shabu-shabu", "images/niku.jpg", "https://www.google.co.jp/search?q=%E3%81%97%E3%82%83%E3%81%B6%E3%81%97%E3%82%83%E3%81%B6&tbm=isch")
+thumbnail("beer", "images/beer.jpg", "https://www.google.co.jp/search?q=%E3%83%93%E3%83%BC%E3%83%AB&tbm=isch")
+```
+
+このように，サムネイルを作成することも可能です。

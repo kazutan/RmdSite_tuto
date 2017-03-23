@@ -1,0 +1,8 @@
+name: "サイトタイトル"
+navbar: 
+  title: "My ウェブサイト"
+  left:
+    - text: "ホーム"
+      href: index.html
+    - text: "趣味"
+      href: shumi.html

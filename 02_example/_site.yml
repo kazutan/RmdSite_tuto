@@ -1,0 +1,20 @@
+name: "サイトタイトル"
+navbar: 
+  title: "My ウェブサイト"
+  left:
+    - text: "ホーム"
+      href: index.html
+    - text: "趣味"
+      href: shumi.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    toc: true
+    toc_float:
+      collapse: false
+    df_print: "kable"
+    include:
+      after_body: footer.html
+    css: site_style.css
+output_dir: "docs"
