@@ -2,7 +2,7 @@
 
 ## このリポジトリの使い方
 
-「00_sample」から「05_sample」までのディレクトリ内に，それぞれ`**_sample.Rproj`というプロジェクトファイルがあります。説明資料で指示があったら，そのフォルダのプロジェクトファイルを開いてください。
+「00_sample」から「04_sample」までのディレクトリ内に，それぞれ`**_sample.Rproj`というプロジェクトファイルがあります。説明資料で指示があったら，そのフォルダのプロジェクトファイルを開いてください。
 
 ## レッスン0 専用のプロジェクトを準備
 
@@ -209,6 +209,33 @@ Bootstrapは[grid system](http://getbootstrap.com/css/#grid)を採用してい�
     - 詳しくは[公式ドキュメントのこのあたり](http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation)や,[この記事](http://qiita.com/kazutan/items/72276e204944b191c5d5)あたりを参考にしてください
 
 
-## デプロイ(サイト公開)
+## サイト公開(デプロイ)
 
-[wip]
+サイトを作成したら公開するのですが，設置する場所が必要です。
+
+### 通常のWebサーバー
+
+- 設置先のサーバーを準備
+- サーバ上の，Webサイトでのルートディレクトリに設定した場所を確認
+- `_site.yml`で`output_dir: `指定した出力先(標準では`_site/`)に入っているファイルやディレクトリをまるっとコピー
+
+ようするに，出力されたものをまるっと置いてしまえばOKです。
+
+### GitHub上に設置して公開
+
+- GitHubにリポジトリを作成
+    - 公開するにはPublicである必要あり
+- プロジェクトのディレクトリをGitHubリポジトリに紐付け
+    - `.gitignore`に`doc/`を追記しとくこと
+- `_site.yml`の`output_dir: `を**"docs"**へ指定
+    - 設定したらbuildを実行
+- commitしてmasterにPush
+- ブラウザでGitHubの該当リポジトリへ
+    - **Setting**タブをクリック
+    - 下へスクロールして**GitHub Pages**へ
+    - **Source**で，**Master branch /docs folder**に切り替える
+- しばらく待って，`https://(アカウント名).github.io/(リポジトリ名)/`へアクセス
+
+以降は修正したらbuildしてcommit - pushでOKです。Gitに慣れているならば，これが一番楽になるでしょう。また，上記のレッスン00でプロジェクトを準備する際に，はじめからVersion Controlを指定しておくと楽でしょう。
+
+**Enjoy!**
