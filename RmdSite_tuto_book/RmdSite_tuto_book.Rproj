@@ -13,3 +13,4 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
+WebsitePath: ~/Dropbox/for_R/RmdSite_tuto/RmdSite_tuto_book

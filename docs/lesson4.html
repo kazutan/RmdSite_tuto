@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R MarkdownでWebサイト生成しよう</title>
+  <meta name="description" content="R MarkdownでWebサイト生成しよう">
+  <meta name="generator" content="bookdown 0.3.14 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R MarkdownでWebサイト生成しよう" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R MarkdownでWebサイト生成しよう" />
+  
+  
+  
+
+<meta name="author" content="Kazutan">
+
+
+<meta name="date" content="2017-03-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="lesson3.html">
+<link rel="next" href="lesson5.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R MarkdownでWebサイト作成しよう</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#このリポジトリの使い方"><i class="fa fa-check"></i>このリポジトリの使い方</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lesson0.html"><a href="lesson0.html"><i class="fa fa-check"></i>lesson: 0 専用のプロジェクトを準備</a></li>
+<li class="chapter" data-level="1" data-path="lesson1.html"><a href="lesson1.html"><i class="fa fa-check"></i><b>1</b> レッスン1 最小構成で準備してbuild</a></li>
+<li class="chapter" data-level="2" data-path="lesson2.html"><a href="lesson2.html"><i class="fa fa-check"></i><b>2</b> レッスン2 基本的なサイト設定</a><ul>
+<li class="chapter" data-level="2.1" data-path="lesson2.html"><a href="lesson2.html#サイト名"><i class="fa fa-check"></i><b>2.1</b> サイト名</a></li>
+<li class="chapter" data-level="2.2" data-path="lesson2.html"><a href="lesson2.html#navbar関連"><i class="fa fa-check"></i><b>2.2</b> navbar関連</a></li>
+<li class="chapter" data-level="2.3" data-path="lesson2.html"><a href="lesson2.html#output関連"><i class="fa fa-check"></i><b>2.3</b> output関連</a></li>
+<li class="chapter" data-level="2.4" data-path="lesson2.html"><a href="lesson2.html#output_dir"><i class="fa fa-check"></i><b>2.4</b> output_dir</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lesson3.html"><a href="lesson3.html"><i class="fa fa-check"></i><b>3</b> レッスン03 サイトデザインを考える</a><ul>
+<li class="chapter" data-level="3.1" data-path="lesson3.html"><a href="lesson3.html#知っておくべきこと"><i class="fa fa-check"></i><b>3.1</b> 知っておくべきこと</a></li>
+<li class="chapter" data-level="3.2" data-path="lesson3.html"><a href="lesson3.html#rmdで生成されるタグのid-class"><i class="fa fa-check"></i><b>3.2</b> Rmdで生成されるタグのid, class</a></li>
+<li class="chapter" data-level="3.3" data-path="lesson3.html"><a href="lesson3.html#bootstrapのgrid-systemを利用"><i class="fa fa-check"></i><b>3.3</b> Bootstrapのgrid systemを利用</a></li>
+<li class="chapter" data-level="3.4" data-path="lesson3.html"><a href="lesson3.html#cssの優先順位"><i class="fa fa-check"></i><b>3.4</b> cssの優先順位</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lesson4.html"><a href="lesson4.html"><i class="fa fa-check"></i><b>4</b> レッスン04 発展編</a><ul>
+<li class="chapter" data-level="4.1" data-path="lesson4.html"><a href="lesson4.html#rでhtml生成"><i class="fa fa-check"></i><b>4.1</b> Rでhtml生成</a></li>
+<li class="chapter" data-level="4.2" data-path="lesson4.html"><a href="lesson4.html#javascriptを利用"><i class="fa fa-check"></i><b>4.2</b> JavaScriptを利用</a></li>
+<li class="chapter" data-level="4.3" data-path="lesson4.html"><a href="lesson4.html#その他"><i class="fa fa-check"></i><b>4.3</b> その他</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lesson5.html"><a href="lesson5.html"><i class="fa fa-check"></i><b>5</b> サイト公開(デプロイ)</a><ul>
+<li class="chapter" data-level="5.1" data-path="lesson5.html"><a href="lesson5.html#通常のwebサーバー"><i class="fa fa-check"></i><b>5.1</b> 通常のWebサーバー</a></li>
+<li class="chapter" data-level="5.2" data-path="lesson5.html"><a href="lesson5.html#github上に設置して公開"><i class="fa fa-check"></i><b>5.2</b> GitHub上に設置して公開</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R MarkdownでWebサイト生成しよう</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="レッスン04-発展編" class="section level1">
+<h1><span class="header-section-number">lesson: 4</span> レッスン04 発展編</h1>
+<p>以下，<strong>04_example</strong>ディレクトリを使用します。該当ディレクトリ内のプロジェクトファイルを開いてください。</p>
+<p>開いたら，一旦buildしてみて確認してください。</p>
+<div id="rでhtml生成" class="section level2">
+<h2><span class="header-section-number">4.1</span> Rでhtml生成</h2>
+<ul>
+<li>Rでhtmlを生成していくことも可能
+<ul>
+<li><code>knitr::kable</code>などもそのひとつ</li>
+<li><strong>htmltools</strong>パッケージを駆使すれば色々できる</li>
+<li>詳しくは<a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html#html_generation">公式ドキュメントのこちら</a>を参照</li>
+</ul></li>
+<li>たとえばサムネイルを作成することも可能
+<ul>
+<li>Rmdサンプルは<code>04_example/html_gene.Rmd</code></li>
+<li>生成されるhtmlは<code>03_example/docs/html_gene.html</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="javascriptを利用" class="section level2">
+<h2><span class="header-section-number">4.2</span> JavaScriptを利用</h2>
+<ul>
+<li>htmlwidgets系を使えばインタラクティブな可視化
+<ul>
+<li>詳細は省略しますが，そのままRチャンクに組み込めばOK</li>
+</ul></li>
+<li>R MarkdownではJavaScritpチャンクも使用可能
+<ul>
+<li>詳しくは<a href="http://rmarkdown.rstudio.com/authoring_knitr_engines.html#javascript">公式ドキュメントのこちら</a>を参照</li>
+<li>jQueryを標準で読み込んでいるので，そのまま使える</li>
+</ul></li>
+<li>htmlwidgetsやjQueryを組み込んだ例:
+<ul>
+<li>Rmdサンプルは<code>04_example/js_test.Rmd</code></li>
+<li>生成されるhtmlは<code>03_example/docs/js_test.html</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="その他" class="section level2">
+<h2><span class="header-section-number">4.3</span> その他</h2>
+<p>説明および具体例は省略します。</p>
+<ul>
+<li><strong>include</strong>オプションと<strong>exclude</strong>オプションでoutput_dirへファイルをコピーするかどうかを制御可能
+<ul>
+<li>詳しくは<a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_configuration">公式ドキュメントのこちら</a>を参照</li>
+</ul></li>
+<li>ナビゲーションバー(navbar)について,自分でもっとBootstrapの機能を使ったものにできます
+<ul>
+<li><code>_navbar.html</code>というファイルを準備</li>
+<li>ここにBootstrapのnavbarに関するhtmlシンタックスを記述すればOK</li>
+<li>詳しくは<a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation">公式ドキュメントのこのあたり</a>を参照</li>
+</ul></li>
+<li>繰り返し使うような要素はそこを別Rmdファイルに部分化し,呼び出して使うと楽
+<ul>
+<li>詳しくは<a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation">公式ドキュメントのこのあたり</a>や,<a href="http://qiita.com/kazutan/items/72276e204944b191c5d5">この記事</a>あたりを参考にしてください</li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lesson3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lesson5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
