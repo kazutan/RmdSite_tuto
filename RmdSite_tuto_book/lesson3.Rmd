@@ -1,0 +1,61 @@
+# レッスン03 サイトデザインを考える
+
+以下，**03_example**ディレクトリを使用します。該当ディレクトリ内のプロジェクトファイルを開いてください。
+
+開いたら，一旦buildしてみて確認してください。
+
+## 知っておくべきこと
+
+R Markdownでhtmlを生成してデザインを考える上で，以下のことは頭に留めておいてください:
+
+1. Rmdは**Pandoc**を利用してhtmlを生成
+    - Rmd -> (knit) ->  **md -> (Pandoc) -> html**
+    - 良くも悪くもPandocの影響を色濃く受ける
+        - [Pandoc ユーザーズガイド 日本語版 - Japanese Pandoc User's Association](http://sky-y.github.io/site-pandoc-jp/users-guide/)
+        - [RStudioの&quot;knit HTML&quot;でPandocに送っている内容 - Qiita](http://qiita.com/kazutan/items/eb15a42607f87f57b525)
+2. 生成されたhtmlには**[Bootstrap](http://getbootstrap.com/)**と**[jQuery](https://jquery.com/)**が標準で組み込まれる
+    - Bootstrapベースでデザインすると楽
+    - 別のcssフレームワークにする場合は以下の記事を参照
+        - [R Markdownで標準のCSSとhighlightを取り除くには - Qiita](http://qiita.com/kazutan/items/fe142344f33b1c980276)
+
+## Rmdで生成されるタグのid, class
+
+- 基本的にPandocの仕様で生成されます
+    - Rmdのサンプルは`03_example/id_class_check.Rmd`
+    - 生成されるhtmlは`03_example/docs/id_class_check.html`
+    - これの詳しい解説は，以下の記事を参照
+        - [R Markdownで生成するhtmlタグ要素のidとclassを確認 - Qiita](http://qiita.com/kazutan/items/807192a0449615dc8852)
+- 上記サンプルを参考に，cssを設定すればOK
+    - サイト全体テーマなら，`_site.yml`で指定したcssファイルに
+    - 個別ページで当てたい場合については後述
+
+## Bootstrapのgrid systemを利用
+
+Bootstrapは[grid system](http://getbootstrap.com/css/#grid)を採用しています。R MarkdownではBootstrapを標準で組み込んでいますので比較的簡単に実装できます。
+
+実装する方法はいくつかあります:
+
+1. `<div>`タグ直打ちで準備
+    - gridレイアウトにしたい部分に対して<div>を直打ちして指定
+    - 生成物が複雑になりがちでメンテしにくくなる
+2. Pandocの拡張機能を利用してclass属性を付与
+    - 詳しくは以下の記事を参照
+        - [R MarkdownでBootstrapのグリッドシステムを利用する - Qiita](http://qiita.com/kazutan/items/6301087a41a18c96faf2)
+    - Rmdのサンプルは`03_example/grid_test.Rmd`
+    - 生成されるhtmlは`03_example/docs/grid_test.html`
+    - 設定する見出しのレベルにさえ配慮しておけば簡単
+
+個人的には後者をおすすめします
+
+## cssの優先順位
+
+- **個別ページでcssを設定した場合`_site.yml`で指定したcssと差し替える**
+    - サイト設定によるcssを活かしたい場合:
+        - cssファイルを2つ(orそれ以上)全てそのページで指定
+        - yaml部分で`include`を活用してスタイルシートを指定
+        - cssチャンクを利用して<body>部分にstyleを記述
+- cssチャンク > includeによる指定 > サイト設定 の順で優先される
+    - Rmdサンプルは`03_example/css_test.Rmd`
+    - 生成されるhtmlは`03_example/docs/grid_test.html`
+
+他の複数ページでも同じスタイルを利用するのであれば，yamlの`include`オプションでうまく当てるのがスムーズです。もし「このページだけでちょっと当てたい」というのであればcssチャンクを使うのが楽でしょう。
