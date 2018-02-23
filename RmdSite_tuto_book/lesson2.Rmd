@@ -1,0 +1,68 @@
+# レッスン2 基本的なサイト設定
+
+以下，**02_sample**ディレクトリを使います。該当ディレクトリ内のプロジェクトファイルを開いてください。
+
+サイトの全体設定は`_site.yml`ファイルに記述していきます。以下このファイルの内容を説明していきます。
+
+## サイト名
+
+```
+name: "サイトタイトル"
+```
+
+- サイトのタイトルを文字列で指定します
+- このサイトを開いた時，ウィンドウの一番上やタブに表示されます
+
+## navbar関連
+
+```
+navbar: 
+  title: "My ウェブサイト"
+  left:
+    - text: "ホーム"
+      href: index.html
+    - text: "趣味"
+      href: shumi.html
+```
+
+- `navbar:`以降ぶら下がるのがいわゆるメニューバー設定
+    - `title:`はサイト名として常に表示される
+    - `left:`以降ぶら下がっているのが項目で，**左揃えで配置**される
+        - `- `とその下にぶら下がるのが1項目分の情報
+            - `-text:`は表示文字列，`href:`がリンク先
+- この他，色々設定できますが省略します
+    - 詳しくは[公式ドキュメントのここ](http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation)にほぼすべて書いてあります
+
+## output関連
+
+```
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    toc: true
+    toc_float:
+      collapse: false
+    df_print: "kable"
+    include:
+      after_body: footer.html
+    css: site_style.css
+```
+
+- 通常のR Markdownでのoutputの指定と同様です
+    - 設定可能項目はたくさん
+    - (現時点での)最新一覧は以下の資料を  
+    [R Markdownのhtml_documentで指定できるyamlヘッダ項目について - Qiita](http://qiita.com/kazutan/items/726e03dfcef1615ae999)
+- **この設定が(原則)全てのRmdファイルに当たります**
+    - 個別のRmdファイルに記述すれば，そっちが優先されて上書きされます
+
+## output_dir
+
+```
+output_dir: "docs"
+```
+
+- buildで生成される，Webサイトに必要なファイル一式を出力する場所を指定
+    - ここにできたものをまるっとWebサーバーに設置すればOK
+    - 標準では`_site`ディレクトリ
+    - `github.io`に設置を考えているなら，`docs`がおすすめ

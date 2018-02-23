@@ -1,0 +1,39 @@
+# レッスン04 発展編
+
+以下，**04_example**ディレクトリを使用します。該当ディレクトリ内のプロジェクトファイルを開いてください。
+
+開いたら，一旦buildしてみて確認してください。
+
+## Rでhtml生成
+
+- Rでhtmlを生成していくことも可能
+    - `knitr::kable`などもそのひとつ
+    - **htmltools**パッケージを駆使すれば色々できる
+    - 詳しくは[公式ドキュメントのこちら](http://rmarkdown.rstudio.com/rmarkdown_websites.html#html_generation)を参照
+- たとえばサムネイルを作成することも可能
+    - Rmdサンプルは`04_example/html_gene.Rmd`
+    - 生成されるhtmlは`03_example/docs/html_gene.html`
+
+## JavaScriptを利用
+
+- htmlwidgets系を使えばインタラクティブな可視化
+    - 詳細は省略しますが，そのままRチャンクに組み込めばOK
+- R MarkdownではJavaScritpチャンクも使用可能
+    - 詳しくは[公式ドキュメントのこちら](http://rmarkdown.rstudio.com/authoring_knitr_engines.html#javascript)を参照
+    - jQueryを標準で読み込んでいるので，そのまま使える
+- htmlwidgetsやjQueryを組み込んだ例:
+    - Rmdサンプルは`04_example/js_test.Rmd`
+    - 生成されるhtmlは`03_example/docs/js_test.html`
+
+## その他
+
+説明および具体例は省略します。
+
+- **include**オプションと**exclude**オプションでoutput_dirへファイルをコピーするかどうかを制御可能
+    - 詳しくは[公式ドキュメントのこちら](http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_configuration)を参照
+- ナビゲーションバー(navbar)について,自分でもっとBootstrapの機能を使ったものにできます
+    - `_navbar.html`というファイルを準備
+    - ここにBootstrapのnavbarに関するhtmlシンタックスを記述すればOK
+    - 詳しくは[公式ドキュメントのこのあたり](http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation)を参照
+- 繰り返し使うような要素はそこを別Rmdファイルに部分化し,呼び出して使うと楽
+    - 詳しくは[公式ドキュメントのこのあたり](http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation)や,[この記事](http://qiita.com/kazutan/items/72276e204944b191c5d5)あたりを参考にしてください

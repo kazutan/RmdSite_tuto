@@ -1,0 +1,94 @@
+---
+title: cssの優先度テスト
+output:
+  html_document:
+    toc: false
+    css:
+      - site_style.css
+      - a_style.css
+---
+
+```{css}
+h3 {
+  color: #f30;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+```
+
+今回，yamlフロントマターを以下のように指定しています:
+
+````
+---
+title: cssの優先度テスト
+output:
+  html_document:
+    toc: false
+    css:
+      - site_style.css
+      - a_style.css
+---
+````
+
+ここでcssを二つ指定していますが，**個別ページでcssを設定した場合`_site.yml`で指定したcssと差し替えるためです**。今回は指定順もチェックするために2つ指定しています。
+
+3つの見出し要素でテストします。
+
+まず，サイト全体設定として使っていた`site_style.css`では，以下のように指定:
+
+```
+h1 {
+  color: #006;
+}
+h2 {
+  color: #039;
+  border-bottom: 1px solid #039;
+  margin-top: 35px;
+  padding-top: 20px;
+}
+h3 {
+  color: #03f;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+
+```
+
+次に，このページ用に`a_style.css`を以下のように準備して，このRmdのYAMLフロントマターで読み込ませる:
+
+```
+h2 {
+  color: #093;
+  border-bottom: 1px solid #039;
+  margin-top: 35px;
+  padding-top: 20px;
+}
+h3 {
+  color: #0f3;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+```
+
+最後に，cssチャンクを準備して以下のように指定:
+
+`r ""````{css}
+h3 {
+  color: #f30;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+`r ""````
+
+
+# h1要素
+
+ここでは競合がないため，サイト全体設定の`site_style.css`の分が当たります。
+
+## h2要素
+
+ここでは最初に指定した`site_style.css`とその後に指定した`a_style.css`が競合しますが，**後から指定した方が優先して当たります**。
+
+### h3要素
+
+ここではサイト全体設定の`site_style.css`とこのページで指定した`a_style.css`，そしてcssチャンクで指定したものが競合しますが，**cssチャンクで指定したものが当たります**。
